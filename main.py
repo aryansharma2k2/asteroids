@@ -42,6 +42,12 @@ def main():
             shot.update(dt)
             shot.draw(screen)
 
+        for a in asteroids:
+            for shot in shots:
+                if shot.check_collisions(a):
+                    a.split()
+                    shot.kill()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
